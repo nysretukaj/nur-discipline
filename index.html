@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nur & Disiplinë</title>
+    
+    <meta name="description" content="Motivim ditor, disiplinë dhe qetësi shpirtërore nga ajetet e Kuranit.">
+    <meta property="og:title" content="Nur & Disiplinë - Motivim Hyjnor">
+    <meta property="og:description" content="Gjej forcën dhe qetësinë tënde në fjalën e Krijuesit.">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕌</text></svg>">
+    <link rel="apple-touch-icon" href="https://img.icons8.com/fluency/96/mosque.png">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Nur">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#022c22">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --gold: #d4af37;
+            --text: #ecfdf5;
+            --glass: rgba(4, 120, 87, 0.25);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at center, #064e3b 0%, #022c22 100%);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            padding-top: env(safe-area-inset-top); 
+            transition: background 1s ease;
+            overflow-x: hidden;
+            overscroll-behavior-y: none; 
+        }
+
+        .top-bar {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        select {
+            background: rgba(0, 0, 0, 0.3);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+        }
+        option { background: #022c22; }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 80vh;
+            justify-content: space-between;
+        }
+
+        header { margin-bottom: 20px; margin-top: 10px; }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .subtitle { opacity: 0.8; font-size: 0.95rem; font-weight: 400; }
+
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 24px;
+            padding: 30px 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            margin-bottom: 25px;
+            max-height: 55vh; 
+            overflow-y: auto;
+        }
+
+        .arabic {
+            font-family: 'Amiri', serif;
+            font-size: 2.2rem;
+            color: #fff;
+            margin-bottom: 20px;
+            direction: rtl;
+            line-height: 1.6;
+        }
+
+        .translation {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: #e0f2fe;
+            font-style: italic;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .reference {
+            font-size: 0.8rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: auto;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding-top: 20px;
+        }
+
+        .icon-btn {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .icon-btn:hover { background: var(--gold); color: #022c22; transform: scale(1.05); }
+        .icon-btn svg { width: 22px; height: 22px; fill: currentColor; }
+
+        .btn-main {
+            background: linear-gradient(135deg, var(--gold), #b8860b);
+            color: #022c22;
+            border: none;
+            padding: 16px 0;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transition: transform 0.1s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .btn-main:active { transform: scale(0.98); }
+
+        footer {
+            font-size: 0.75rem;
+            opacity: 0.5;
+            letter-spacing: 0.5px;
+            padding-bottom: 20px;
+        }
+
+        .playing { animation: pulse 1.5s infinite; background: var(--gold); color: #022c22; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
+
+        @media (max-height: 700px) {
+            h1 { font-size: 2rem; }
+            .card { padding: 20px 15px; }
+            .arabic { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <select id="lang" onchange="changeLang()">
+            <option value="sq">🇦🇱 Shqip</option>
+            <option value="en">🇬🇧 English</option>
+        </select>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1 id="ui-title">Nur & Disiplinë</h1>
+            <p class="subtitle" id="ui-sub">Burimi yt ditor i forcës shpirtërore</p>
+        </header>
+
+        <div class="card" id="card">
+            <div class="arabic" id="ar">...</div>
+            <div class="translation" id="tr"></div>
+            <span class="reference" id="ref"></span>
+
+            <div class="actions">
+                <button class="icon-btn" id="playBtn" onclick="toggleAudio()">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <button class="icon-btn" onclick="share()">
+                    <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <div>
+            <button class="btn-main" id="ui-btn" onclick="newVerse()">Gjej Motivim</button>
+            <footer>Made with ❤️ as Sadaqah Jariyah</footer>
+        </div>
+    </div>
+
+    <script>
+        const data = [
+            { ar: "وَأَن لَّيْسَ لِلْإِنسَٰنِ إِلَّا مَا سَعَىٰ", t: { sq: "Dhe se njeriut i takon vetëm ajo për të cilën ai është përpjekur.", en: "And that there is not for man except that [good] for which he strives." }, r: { sq: "Surah An-Najm, 53:39", en: "Surah An-Najm, 53:39" }, s: 53, a: 39 },
+            { ar: "فَإِنَّ مَعَ ٱلْعُسْرِ يُسْرًا", t: { sq: "Vërtet, pas vështirësisë vjen lehtësimi.", en: "Indeed, with hardship [will be] ease." }, r: { sq: "Surah Ash-Sharh, 94:5", en: "Surah Ash-Sharh, 94:5" }, s: 94, a: 5 },
+            { ar: "لَا يُكَلِّفُ ٱللَّهُ نَفْسًا إِلَّا وُسْعَهَا", t: { sq: "Allahu nuk e ngarkon asnjë shpirt përtej mundësive të tij.", en: "Allah does not charge a soul except [with that within] its capacity." }, r: { sq: "Surah Al-Baqarah, 2:286", en: "Surah Al-Baqarah, 2:286" }, s: 2, a: 286 },
+            { ar: "وَٱصْبِرْ لِحُكْمِ رَبِّكَ فَإِنَّكَ بِأَعْيُنِنَا", t: { sq: "Dhe bëj durim për vendimin e Zotit tënd, sepse ti je nën mbikëqyrjen Tonë.", en: "And be patient for the decision of your Lord, for indeed, you are in Our eyes." }, r: { sq: "Surah At-Tur, 52:48", en: "Surah At-Tur, 52:48" }, s: 52, a: 48 },
+            { ar: "إِنَّ ٱللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتَّىٰ يُغَيِّرُوا۟ مَا بِأَنفُسِهِمْ", t: { sq: "Allahu nuk e ndryshon gjendjen e një populli derisa ata të ndryshojnë vetveten.", en: "Indeed, Allah will not change the condition of a people until they change what is in themselves." }, r: { sq: "Surah Ar-Ra'd, 13:11", en: "Surah Ar-Ra'd, 13:11" }, s: 13, a: 11 },
+            { ar: "فَإِذَا عَزَمْتَ فَتَوَكَّلْ عَلَى ٱللَّهِ", t: { sq: "Dhe kur të vendosësh, mbështetu tek Allahu.", en: "And when you have decided, then rely upon Allah." }, r: { sq: "Surah Ali 'Imran, 3:159", en: "Surah Ali 'Imran, 3:159" }, s: 3, a: 159 },
+            { ar: "وَٱلَّذِينَ جَٰهَدُوا۟ فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا", t: { sq: "E ata që përpiqen për Ne, Ne gjithsesi do t'i udhëzojmë rrugëve Tona.", en: "And those who strive for Us - We will surely guide them to Our ways." }, r: { sq: "Surah Al-Ankabut, 29:69", en: "Surah Al-Ankabut, 29:69" }, s: 29, a: 69 },
+            { ar: "وَقُلِ ٱعْمَلُوا۟ فَسَيَرَى ٱللَّهُ عَمَلَكُمْ", t: { sq: "Dhe thuaj: 'Punoni! Allahu do ta shohë punën tuaj...'", en: "And say, 'Do [as you will], for Allah will see your deeds...'" }, r: { sq: "Surah At-Tawbah, 9:105", en: "Surah At-Tawbah, 9:105" }, s: 9, a: 105 },
+            { ar: "إِنَّ مَعِيَ رَبِّي سَيَهْدِينِ", t: { sq: "Vërtet, me mua është Zoti im; Ai do të më udhëzojë.", en: "Indeed, with me is my Lord; He will guide me." }, r: { sq: "Surah Ash-Shu'ara, 26:62", en: "Surah Ash-Shu'ara, 26:62" }, s: 26, a: 62 },
+            { ar: "فَٱسْتَقِمْ كَمَآ أُمِرْتَ", t: { sq: "Prandaj qëndro i palëkundur (në rrugën e drejtë) ashtu siç je urdhëruar.", en: "So remain on a right course as you have been commanded." }, r: { sq: "Surah Hud, 11:112", en: "Surah Hud, 11:112" }, s: 11, a: 112 },
+            { ar: "إِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ", t: { sq: "Vërtet, Allahu nuk e humb shpërblimin e atyre që bëjnë vepra të mira.", en: "Indeed, Allah does not allow to be lost the reward of the doers of good." }, r: { sq: "Surah At-Tawbah, 9:120", en: "Surah At-Tawbah, 9:120" }, s: 9, a: 120 },
+            { ar: "وَسَارِعُوٓا۟ إِلَىٰ مَغْفِرَةٍ مِّن رَّبِّكُمْ", t: { sq: "Dhe nxitoni drejt faljes nga Zoti i juaj...", en: "And hasten to forgiveness from your Lord..." }, r: { sq: "Surah Ali 'Imran, 3:133", en: "Surah Ali 'Imran, 3:133" }, s: 3, a: 133 },
+            { ar: "فَإِذَا فَرَغْتَ فَٱنصَبْ", t: { sq: "Kur ta kryesh (një punë), angazhohu (në tjetrën).", en: "So when you have finished [your duties], then stand up [for worship]." }, r: { sq: "Surah Ash-Sharh, 94:7", en: "Surah Ash-Sharh, 94:7" }, s: 94, a: 7 },
+            { ar: "لَا تَقْنَطُوا۟ مِن رَّحْمَةِ ٱللَّهِ", t: { sq: "Mos e humbni shpresën në mëshirën e Allahut.", en: "Do not despair of the mercy of Allah." }, r: { sq: "Surah Az-Zumar, 39:53", en: "Surah Az-Zumar, 39:53" }, s: 39, a: 53 },
+            { ar: "وَلَسَوْفَ يُعْطِيكَ رَبُّكَ فَتَرْضَىٰ", t: { sq: "Zoti yt do të të japë ty, dhe ti do të jesh i kënaqur.", en: "And your Lord is going to give you, and you will be satisfied." }, r: { sq: "Surah Ad-Duha, 93:5", en: "Surah Ad-Duha, 93:5" }, s: 93, a: 5 },
+            { ar: "حَسْبُنَا ٱللَّهُ وَنِعْمَ ٱلْوَكِيلُ", t: { sq: "Na mjafton Allahu dhe Ai është rregulluesi më i mirë.", en: "Sufficient for us is Allah, and [He is] the best Disposer of affairs." }, r: { sq: "Surah Ali 'Imran, 3:173", en: "Surah Ali 'Imran, 3:173" }, s: 3, a: 173 },
+            { ar: "أَلَا بِذِكْرِ ٱللَّهِ تَطْمَئِنُّ ٱلْقُلُوبُ", t: { sq: "A nuk qetësohen zemrat me përmendjen e Allahut?", en: "Unquestionably, by the remembrance of Allah hearts are assured." }, r: { sq: "Surah Ar-Ra'd, 13:28", en: "Surah Ar-Ra'd, 13:28" }, s: 13, a: 28 },
+            { ar: "وَرَحْمَتِى وَسِعَتْ كُلَّ شَىْءٍ", t: { sq: "Dhe mëshira Ime ka përfshirë çdo gjë.", en: "But My mercy encompasses all things." }, r: { sq: "Surah Al-A'raf, 7:156", en: "Surah Al-A'raf, 7:156" }, s: 7, a: 156 },
+            { ar: "وَإِذَا سَأَلَكَ عِبَادِى عَنِّى فَإِنِّى قَرِيبٌ", t: { sq: "Dhe kur robërit e Mi të pyesin për Mua, (thuaju se) Unë jam afër.", en: "And when My servants ask you concerning Me - indeed I am near." }, r: { sq: "Surah Al-Baqarah, 2:186", en: "Surah Al-Baqarah, 2:186" }, s: 2, a: 186 },
+            { ar: "إِنَّمَا يُوَفَّى ٱلصَّٰبِرُونَ أَجْرَهُم بِغَيْرِ حِسَابٍ", t: { sq: "Vërtet, durimtarëve do t'u jepet shpërblimi pa llogari.", en: "Indeed, the patient will be given their reward without account." }, r: { sq: "Surah Az-Zumar, 39:10", en: "Surah Az-Zumar, 39:10" }, s: 39, a: 10 },
+            { ar: "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱسْتَعِينُوا۟ بِٱلصَّبْرِ وَٱلصَّلَوٰةِ", t: { sq: "O ju që keni besuar! Kërkoni ndihmë me durim dhe namaz.", en: "O you who have believed, seek help through patience and prayer." }, r: { sq: "Surah Al-Baqarah, 2:153", en: "Surah Al-Baqarah, 2:153" }, s: 2, a: 153 },
+            { ar: "أَلَيْسَ ٱللَّهُ بِكَافٍ عَبْدَهُۥ", t: { sq: "A nuk i mjafton Allahu robit të Vet?", en: "Is not Allah sufficient for His Servant?" }, r: { sq: "Surah Az-Zumar, 39:36", en: "Surah Az-Zumar, 39:36" }, s: 39, a: 36 },
+            { ar: "ٱدْعُونِىٓ أَسْتَجِبْ لَكُمْ", t: { sq: "Lutmuni Mua, Unë do t'ju përgjigjem.", en: "Call upon Me; I will respond to you." }, r: { sq: "Surah Ghafir, 40:60", en: "Surah Ghafir, 40:60" }, s: 40, a: 60 },
+            { ar: "قَدْ أَفْلَحَ مَن زَكَّىٰهَا", t: { sq: "Ka shpëtuar ai që e pastron atë (shpirtin e vet).", en: "He has succeeded who purifies it." }, r: { sq: "Surah Ash-Shams, 91:9", en: "Surah Ash-Shams, 91:9" }, s: 91, a: 9 },
+            { ar: "وَمَن يَتَوَكَّلْ عَلَى ٱللَّهِ فَهُوَ حَسْبُهُۥ", t: { sq: "Dhe kush mbështetet tek Allahu, Ai i mjafton atij.", en: "And whoever relies upon Allah - then He is sufficient for him." }, r: { sq: "Surah At-Talaq, 65:3", en: "Surah At-Talaq, 65:3" }, s: 65, a: 3 }
+        ];
+
+        const ui = {
+            sq: { h: "Nur & Disiplinë", s: "Burimi yt ditor i forcës shpirtërore", b: "Gjej Motivim", st: "Motivim nga Kurani", sm: "Ajeti u kopjua!" },
+            en: { h: "Noor & Discipline", s: "Your daily source of spiritual strength", b: "Find Motivation", st: "Motivation from Quran", sm: "Copied to clipboard!" }
+        };
+
+        const bgs = [
+            "radial-gradient(circle at center, #064e3b 0%, #022c22 100%)",
+            "linear-gradient(to bottom right, #115e59, #0f172a)",
+            "linear-gradient(45deg, #14532d, #064e3b)",
+            "radial-gradient(circle at top, #047857 0%, #022c22 80%)"
+        ];
+
+        let lang = 'sq';
+        let idx = 0;
+        let audio = null;
+
+        function changeLang() {
+            lang = document.getElementById('lang').value;
+            updateUI();
+        }
+
+        function updateUI() {
+            document.getElementById('ui-title').innerText = ui[lang].h;
+            document.getElementById('ui-sub').innerText = ui[lang].s;
+            document.getElementById('ui-btn').innerText = ui[lang].b;
+            
+            const v = data[idx];
+            document.getElementById('tr').innerText = `"${v.t[lang]}"`;
+            document.getElementById('ref').innerText = v.r[lang];
+        }
+
+        function newVerse() {
+            stopAudio();
+            const c = document.getElementById('card');
+            c.style.opacity = '0';
+            c.style.transform = 'translateY(10px)';
+
+            setTimeout(() => {
+                idx = Math.floor(Math.random() * data.length);
+                const v = data[idx];
+
+                document.getElementById('ar').innerText = v.ar;
+                updateUI();
+                
+                document.body.style.background = bgs[Math.floor(Math.random() * bgs.length)];
+                
+                c.style.opacity = '1';
+                c.style.transform = 'translateY(0)';
+            }, 300);
+        }
+
+        async function toggleAudio() {
+            const btn = document.getElementById('playBtn');
+            if (audio && !audio.paused) {
+                stopAudio();
+                return;
+            }
+            try {
+                btn.classList.add('playing');
+                const v = data[idx];
+                const res = await fetch(`https://api.alquran.cloud/v1/ayah/${v.s}:${v.a}/ar.alafasy`);
+                const json = await res.json();
+                
+                if(json.data && json.data.audio) {
+                    audio = new Audio(json.data.audio);
+                    audio.play();
+                    audio.onended = () => btn.classList.remove('playing');
+                }
+            } catch (e) {
+                btn.classList.remove('playing');
+            }
+        }
+
+        function stopAudio() {
+            if (audio) { audio.pause(); audio.currentTime = 0; }
+            document.getElementById('playBtn').classList.remove('playing');
+        }
+
+        function share() {
+            const v = data[idx];
+            const txt = `${v.ar}\n\n"${v.t[lang]}"\n— ${v.r[lang]}`;
+            if (navigator.share) {
+                navigator.share({ title: ui[lang].st, text: txt, url: window.location.href }).catch(()=>{});
+            } else {
+                navigator.clipboard.writeText(txt).then(() => alert(ui[lang].sm));
+            }
+        }
+
+        window.onload = newVerse;
+    </script>
+</body>
+</html>
